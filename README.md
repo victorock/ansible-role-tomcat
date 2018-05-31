@@ -1,4 +1,4 @@
-Ansible Tower
+Ansible Tomcat
 =========
 
 Simple Role to Install tomcat.
