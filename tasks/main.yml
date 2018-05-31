@@ -1,0 +1,24 @@
+---
+- name: "Ensure state of tomcat packages"
+  yum:
+    name: "{{ tomcat_packages }}"
+    state: present
+
+- name: "Ensure state of tomcat service"
+  service:
+    name: "tomcat"
+    enabled: "{{ tomcat_service_enabled }}"
+    state: "{{ tomcat_service_state }}"
+
+- name: "Ensure state of server configuration for tomcat"
+  template:
+    src: "server.xml.j2"
+    dest: "{{ tomcat_config_dir }}/"
+  notify: "restart tomcat"
+
+- name: "Ensure state of user configuration for tomcat"
+  template:
+    src: "tomcat-users.xml.j2"
+    dest: "{{ tomcat_config_dir }}/"
+    backup: "yes"
+  notify: "restart tomcat"
