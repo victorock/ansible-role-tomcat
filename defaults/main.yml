@@ -18,7 +18,10 @@ tomcat_catalina_home: "{{ tomcat_base_dir }}/tomcat"
 tomcat_instance_path: "{{ tomcat_base_dir }}/tomcat"
 tomcat_service_enabled: "{{ tomcat_enabled }}"
 tomcat_service_state: "{{ tomcat_state }}"
-tomcat_users: []
+tomcat_users:
+  - name: admin
+    password: adminsecret
+    roles: "admin"
 tomcat_roles:
   - manager
   - manager-gui
