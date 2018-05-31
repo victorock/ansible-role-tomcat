@@ -4,14 +4,15 @@ tomcat_packages:
   - tomcat
   - tomcat-webapps
   - tomcat-admin-webapps
-tomcat_http_port: 8080
-tomcat_https_port: 8443
 tomcat_enabled: "yes"
 tomcat_state: "started"
 tomcat_config_dir: "/etc/tomcat"
 tomcat_base_dir: "/usr/share"
-tomcat_catalina_port: "{{ tomcat_http_port }}"
+tomcat_http_port: 8080
+tomcat_https_port: 8443
+tomcat_server_port: 8005
 tomcat_ajp_connector_port: 8009
+tomcat_catalina_port: "{{ tomcat_http_port }}"
 tomcat_catalina_redirect_port: "{{ tomcat_https_port }}"
 tomcat_catalina_home: "{{ tomcat_base_dir }}/tomcat"
 tomcat_instance_path: "{{ tomcat_base_dir }}/tomcat"
